@@ -14,8 +14,11 @@ public class SLR {
     public static void main(String[] args) {
         SLR test = new SLR();
 
-        test.setObsX(new double[]{23,26,30,34,43,48,52,57,58});
-        test.setObsY(new double[]{651,762,856,1063,1190,1298,1421,1440,1518});
+        // test.setObsX(new double[]{23,26,30,34,43,48,52,57,58});
+        // test.setObsY(new double[]{651,762,856,1063,1190,1298,1421,1440,1518});
+
+        test.setObsX(new double[]{2,4,6,8});
+        test.setObsY(new double[]{2,4,6,8});
 
         for(int i=0; i<args.length; i++){
             test.setXPredict(args[i]);
@@ -93,8 +96,8 @@ public class SLR {
     public void StartLR() {
         double[] obsX2 = powArray(getObsX(), 2);
         
-        setB0(calcB0(getObsX(), getObsY(), getB1()));
         setB1(calcB1(getObsX(), getObsY(), obsX2));
+        setB0(calcB0(getObsX(), getObsY(), getB1()));
     }
 
     public double calcY(double m, double b, double x){
