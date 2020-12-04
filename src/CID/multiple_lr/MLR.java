@@ -146,8 +146,16 @@ public class MLR{
         
     }
 
+    // private static double CalculateB0(){
+    //     return Average(2) - CalculateB1()*Average(0) - CalculateB2()*Average(1);
+    // }
+
     private static double CalculateB0(){
-        return Average(2) - CalculateB1()*Average(0) - CalculateB2()*Average(1);
+        return (
+            ( sumY*sumPowX1*sumPowX2 + sumX1*sumX1X2*sumX2Y + sumX2*sumX1Y*sumX1X2 ) 
+            - 
+            ( sumX2Y*sumPowX1*sumX2 + sumX1X2*sumX1X2*sumY + sumPowX2*sumX1Y*sumX1 )
+        ) / determinante;
     }
 
     private static double CalculateB1(){
